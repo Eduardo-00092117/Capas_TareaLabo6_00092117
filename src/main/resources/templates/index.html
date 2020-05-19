@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Registro</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body class="bg-dark">
+
+<div class="container bg-light" style = "padding: 2% 20% 5% 20%">
+	<form th:action="@{/guardar}" th:object="${contribuyente}" method="post">
+	  <h1>Registro de contribuyentes</h1>
+	  <div class="form-group">
+	    <label for="exampleFormControlInput1">Nombre:</label>
+	    <input type="text" class="form-control" id="exampleFormControlInput1" name="s_nombre">
+	    <span th:errors="*{s_nombre}" style = "color: #BF2121"></span>
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleFormControlInput1">Apellido:</label>
+	    <input type="text" class="form-control" id="exampleFormControlInput1" name="s_apellido">
+	    <span th:errors="*{s_apellido}" style = "color: #BF2121"></span>
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleFormControlInput1">Nit:</label>
+	    <input type="text" class="form-control" id="exampleFormControlInput1" name="s_nit">
+	    <span th:errors="*{s_nit}" style = "color: #BF2121"></span>
+	  </div>
+	  <div class="form-group">
+	  	<label for="exampleFormControlInput1">Importancia:</label>
+	    <select class="form-control" th:field="*{importancia.c_importancia}">
+		  <option th:each="import : ${importancia}" th:value="${import.c_importancia}" th:text="${import.s_importancia}"></option>
+		</select>
+	  </div>	  
+	  
+	  <button type="submit" class="btn btn-success">Ingresar</button>
+	  
+	  <a href="/listado" class="btn btn-warning">Listado</a>
+	</form>
+</div>
+
+
+
+</body>
+</html>
