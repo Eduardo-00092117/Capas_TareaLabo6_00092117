@@ -48,7 +48,7 @@ public class Contribuyente {
 	private String s_apellido;
 	
 	@Column(name = "s_nit")
-	@Size(max = 10, message = "La cantidad maxima es de 10 caracteres!")
+	@Size(max = 14, min = 14, message = "La cantidad del campo debe ser de 14 caracteres!")
 	@NotEmpty(message = "El campo no puede quedar vacio!")
 	private String s_nit;
 	
